@@ -1,0 +1,132 @@
+@charset 'utf-8';
+/*公共部分样式*/
+*{margin:0;padding:0}
+ul li{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+}
+a:focus{
+    outline: none;
+    text-decoration:none;
+}
+body{color: #333;font-size: 12px;font-family:"微软雅黑","Microsoft Yahei";min-width: 1200px;}
+input,textarea,select{font-size: 12px;color: #444;font-family:"微软雅黑","Microsoft Yahei";}
+input[type='submit'],input[type='reset'],input[type='button'],select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+dl,dt,dd{display:block;margin:0;}
+.dn{
+    display: none;
+}
+.l{
+    float: left;
+}
+.r{
+    float: right;
+}
+a:hover{
+    text-decoration: none;
+}
+ul{
+    margin: 0;
+}
+p{
+    margin: 0;
+}
+.wp{
+    width: 1200px;
+    /*overflow: hidden;*/
+    margin: 0 auto;
+}
+.wp2{
+    width: 1150px;
+    margin: 0 auto;
+}
+.wp3{
+    width: 1000px;
+    margin: 0 auto;
+}
+.wp4{
+    width: 980px;
+    margin: 0 auto;
+}
+.wp5{
+    width: 998px;
+    margin: 0 auto;
+}
+
+
+/********************微信支付**********************/
+.wxzf{
+
+}
+.wxzf .ts{
+    line-height: 25px;
+    margin-top: 30px;
+}
+.wxzf .ts .l{
+    font-size: 14px;
+    font-weight: 700;
+}
+.wxzf .ts .r{
+    text-align: right;
+}
+.wxzf .ts .r p i{
+    font-weight: 700;
+    color:#ff9900;
+    font-size: 14px;
+}
+.saoma{
+    width: 500px;
+    margin: 0 auto;
+    padding: 0 30px;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    margin-top: 25px;
+    box-shadow: 0 0 20px #ccc;
+    margin-bottom: 50px;
+}
+.saoma .saoma-t{
+    height: 50px;
+    line-height: 50px;
+}
+.saoma .saoma-t .l{
+    font-size: 16px;
+    margin-right: 15px;
+}
+.saoma .saoma-t .r{
+    float: left;
+}
+.saoma .saoma-t .r i{
+    color:#ff9900;
+    margin: 0;
+}
+.saoma img{
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height:300px;
+    border: 2px solid #ddd;
+}
+.saoma .saoma-b{
+    width: 300px;
+    height: 60px;
+    color:#fff;
+    font-size: 14px;
+    margin: 0 auto;
+    background-color: #ff9900;
+    margin-top: 20px;
+    padding-left: 125px;
+    background:#ff9900 url(saoma-b.png)no-repeat 50px center;
+}
+.saoma .saoma-b p{
+    padding-top: 8px;
+}
+.saoma .saoma-b p:nth-child(2){
+    padding: 0;
+}
+

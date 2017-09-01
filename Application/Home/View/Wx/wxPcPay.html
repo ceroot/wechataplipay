@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/pc/style.css">
+
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/Home/js/rcode.js"></script>
+</head>
+
+<body>
+<main>
+    <div class="wxzf wp">
+        <div class="ts fix">
+            <div class="l"><p>订单提交成功，请尽快付款！订单号：{$orderId}</p></div>
+            <div class="r">
+                <input type="hidden" id="orderId" value="{$orderId}"/>
+                <p>应付金额 <i>{$totalPrice}</i>元</p>
+
+            </div>
+        </div>
+        <div class="saoma">
+            <div class="saoma-t fix">
+                <div class="l">微信支付</div>
+                <div class="r" id="time_con">距离二维码过期还剩<i id="setTime">50</i>秒，过期后请刷新页面重新获取二维码。</div>
+            </div>
+            <div id="qrcode">
+
+            </div>
+            <div class="saoma-b">
+                <p>请使用微信扫一扫</p>
+                <p>扫描二维码支付</p>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="text/javascript">
+    var code_url="{$unifiedOrderResult.code_url}";
+    var url;
+    var TimeOut;
+    var countdown=50;
+    var count=5;
+    function wxChack() {
+        var out_trade_no="{$out_trade_no}";
+        $.ajax({
+            type:"get",
+            url:"{:U('Wx/returnFun')}",
+            data:{out_trade_no:out_trade_no},
+            dataType:"json",
+            timeout:4000,
+            success:function (data) {
+                if(data.state==1){
+                    window.location.href="{:U('Order/myOrder')}";
+                }
+            }
+        })
+    }
+    function cheTime() {
+        if(count==0){
+            wxChack();
+            count=5;
+        }else{
+            count--;
+        }
+        if(url!=''||url!=null){
+            TimeOut= setTimeout(function () {
+                cheTime()
+            },1000)
+        }
+    }
+    function creatQrcode(url) {
+
+        var qr=qrcode(10,"H");
+        qr.addData(url);
+        qr.make();
+        var element=document.getElementById("qrcode");
+        element.innerHTML = qr.createImgTag();
+
+    }
+    $(function () {
+        if(code_url!==null){
+            url="{$code_url}";
+            creatQrcode(url);
+            settimeM();
+        }
+        if(url!=''||url!=null){
+            cheTime()
+        }
+    });
+    function settimeM() {
+        if (countdown == 0) {
+            clearTimeout(TimeOut)
+            $("#time_con").html("二维码已过期，"+"<a onclick='reGetqrcode()' href='javascript:;' style='color:#337ab7'>刷新</a>重新获取二维码")
+            countdown = 50;
+            return;
+        } else {
+            $("#time_con").html("距离二维码过期还剩"+ countdown + "秒，过期后请重新获取二维码");
+            countdown--;
+        }
+        setTimeout(function() {
+                settimeM() }
+            ,1000)
+    }
+
+
+    function reGetqrcode(){
+        $.post("{:U('Wx/index')}",{trade_no:$("#orderId").val()},function (d) {
+            if(d.state==1){
+                url=d.code_url;
+                creatQrcode(url);
+                settimeM();
+                cheTime();
+            }else{
+                hint(d.msg);
+            }
+        })
+    }
+
+
+
+
+
+</script>
+<include file="Public:footer"/>
+</body>
+
+</html>

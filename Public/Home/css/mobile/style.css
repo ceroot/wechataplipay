@@ -1,0 +1,65 @@
+
+/***************确认支付页****************/
+.qrzf{
+	padding-top: 0.63rem;
+}
+.je{
+	height: 2.92rem;
+	line-height: 2.92rem;
+}
+.zfdd li{
+	/*height: 2.92rem;*/
+	line-height: 2.92rem;
+	border-bottom: 1px dashed #ddd;
+}
+.zfdd li span{
+	float: left;
+}
+.zfdd li p{
+	float: right;
+	color:#ff9900;
+	width: 75%;
+}
+.zfqr{
+	margin-top: 4.17rem;
+}
+/*******************************
+  -------[=确认登录页]-------
+********************************/
+.qrdl-top{
+	padding-top: 3.13rem;
+	padding-bottom: 2.08rem;
+	border-bottom: 1px solid #ebebeb;
+}
+.qrdl-top img{
+	display: block;
+	width: 5rem;
+	height: 5rem;
+	margin: 0 auto;
+}
+.qrdl-top p{
+	text-align: center;
+	font-size: 1.33rem;
+	margin-top: 0.5rem;
+}
+.qrdl-b p{
+	font-size: 1rem;
+	margin-top: 2.08rem;
+	margin-bottom: 1rem;
+}
+.qrdl-b span{
+	font-size: 0.92rem;
+	color:#919191;
+}
+.qrdl{
+	width: 100%;
+	outline: none;
+	border:none;
+	height: 3.13rem;
+	line-height: 3.13rem;
+	background-color: #56bb37;
+	color:#fff;
+	margin-top: 2.5rem;
+	font-size: 1.17rem;
+	border-radius: 5px;
+}

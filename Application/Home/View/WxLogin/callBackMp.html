@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="padding-bottom:0;">
+<head>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/mobile/cui.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/mobile/lib.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/mobile/style.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/mobile/common.css"/>
+
+</head>
+<body style="padding-bottom:0;">
+<div class="wp" style="width:85%;margin:0 auto;">
+    <div class="qrdl-top">
+        <img src="__IMG__/head_logo.png" alt="">
+        <p>XXXX</p>
+    </div>
+    <div class="qrdl-b">
+        <p>网页由该公众号开发，请确认授权以下信息</p>
+        <span>●&nbsp;&nbsp;&nbsp;&nbsp;获得你的公开信息 (昵称、头像等)</span>
+    </div>
+    <form action="{:U('WxLogin/wxSub')}" method="post">
+        <input type="hidden" name="code" value="{$code}">
+        <input type="hidden" name="state" value="{$state}">
+        <input type="submit" value="确认登录" class="qrdl">
+    </form>
+</div>
+</body>
+</html>

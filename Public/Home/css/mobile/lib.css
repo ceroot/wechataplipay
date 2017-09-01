@@ -1,0 +1,98 @@
+
+/*-----------------[初始化]--------------*/
+body{
+    color: #000012;line-height: 1.5;font-family:"微软雅黑","Microsoft Yahei";}
+a{color: #333;}
+a:hover{color: #3c6;}
+/*img{max-width: 100%;
+    transition: .3s;
+    -ms-transition: .3s;
+    -moz-transition: .3s;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+}*/
+input,textarea,select{font-size: 12px;color: #3d4c63;font-family:"微软雅黑","Microsoft Yahei";outline: 0;}
+input[type='submit'],input[type='reset'],input[type='button'],select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+input[type='submit'],input[type='reset'],input[type='button']{cursor: pointer;}
+::-webkit-input-placeholder {color: #78899e;}
+::-moz-placeholder {color: #78899e; }
+::-ms-input-placeholder {color: #78899e;}
+
+input.false:focus{border: 2px solid #ff1531;background: #fff;}
+
+select{
+    background: url(../images/bg-select.png) no-repeat right center;
+    -o-background-size: 30px auto;
+    -ms-background-size: 30px auto;
+    -moz-background-size: 30px auto;
+    -webkit-background-size: 30px auto;
+    background-size: 30px auto;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #888;  
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #888;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #888;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #888;
+}
+.fix{*zoom:1; } .fix:after,.fix:before{display:block; content:"clear"; height:0; clear:both; overflow:hidden; visibility:hidden; }
+/*布局*/
+.wp{
+    padding: 0 1rem;
+}
+/*首页版块头部*/
+.tit{
+    height: 3.13rem;
+    line-height: 3.13rem;
+    margin-top: 1.25rem;
+}
+p.tt{
+    font-size: 1.17rem;
+}
+a.gengduo{
+    font-size: 0.75rem;
+    color:#afafaf;
+}
+/*大按钮样式*/
+.b-btn{
+    display: block;
+    width: 100%;
+    height: 3.33rem;
+    line-height: 3.33rem;
+    text-align: center;
+    font-size: 1.42rem;
+    color:#fff;
+    background-color: #ff9900;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+/*大按钮样式灰*/
+.b-btn-h{
+    display: block;
+    width: 100%;
+    height: 3.33rem;
+    line-height: 3.33rem;
+    text-align: center;
+    font-size: 1.42rem;
+    color:#fff;
+    background-color: #ff9900;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}

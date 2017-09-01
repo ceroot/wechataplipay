@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="padding-bottom:0;">
+<head>
+    <meta charset="UTF-8">
+    <title>{$_title}</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="bookmark" href="/favicon.ico">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-app-capable" content="yes"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/mobile/cui.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/mobile/lib.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/mobile/style.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/mobile/common.css"/>
+
+    <script src="__PUBLIC__/Home/js/jquery.min.js"></script>
+
+    <script>
+        function onBridgeReady(){
+            WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',{$jsApiParameters},
+                function(res){
+                    if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                        alert("你已成功支付，请耐心等待");
+                        location.href="";//跳转页面
+                    }
+                    else if(res.err_msg=="get_brand_wcpay_request:cancel"){
+                        alert("你已取消操作");
+                        location.href="";//条状页面
+                    }
+                    else{
+                        alert("支付失败");
+                        location.href="";//跳转页面
+                    }
+                }
+            );
+        }
+        function callpay()
+        {
+            if (typeof WeixinJSBridge == "undefined"){
+                if( document.addEventListener ){
+                    document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                }else if (document.attachEvent){
+                    document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                    document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                }
+            }else{
+                onBridgeReady();
+            }
+        }
+    </script>
+</head>
+<body style="background-color:#f7f7f9;padding-bottom:0;">
+
+<main>
+    <!-- 确认支付 -->
+    <div class="qrzf wp">
+        <div class="je">
+            支付金额：¥{$totalPrice}
+        </div>
+        <div class="zfdd">
+            <ul>
+                <li class="fix">
+                    <span>订单号：</span><p>{$orderId}</p>
+                </li>
+                <li class="fix">
+                    <span>产品名称：</span><p>{$body}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="zfqr">
+            <input type="button" onclick="callpay()"  value="确认支付" class="b-btn">
+        </div>
+    </div>
+</main>
+<footer>
+
+</footer>
+</body>
+</html>
